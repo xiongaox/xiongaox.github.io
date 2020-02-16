@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>electron-ssr在deepin的使用方法 | 熊贰de窝</title>
+  <title>ArchLinux“三部曲”--安装ArchLinux教程（UEFI） | 熊贰de窝</title>
   
   
 
@@ -275,8 +275,8 @@
         
   
     <h1 class="title">
-      <a href="/2019/11/07/electron-ssr%E5%9C%A8deepin%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
-        electron-ssr在deepin的使用方法
+      <a href="/2020/02/16/ArchLinux%E2%80%9C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%9D--%E5%AE%89%E8%A3%85ArchLinux%E6%95%99%E7%A8%8B%EF%BC%88UEFI%EF%BC%89/">
+        ArchLinux“三部曲”--安装ArchLinux教程（UEFI）
       </a>
     </h1>
   
@@ -307,7 +307,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-11-07</p>
+    <p>2020-02-16</p>
   </a>
 </div>
 
@@ -317,9 +317,9 @@
             
   
   <div class='new-meta-item category'>
-    <a href='/categories/Deepin/' rel="nofollow">
+    <a href='/categories/ArchLinux/' rel="nofollow">
       <i class="fas fa-folder-open" aria-hidden="true"></i>
-      <p>Deepin</p>
+      <p>ArchLinux</p>
     </a>
   </div>
 
@@ -359,34 +359,90 @@
 
     <section class="article typo">
       <div class="article-entry" itemprop="articleBody">
-        <blockquote>
-<p>&#160;&#160;由于最近装了Deepin想来学习<strong><code>git</code></strong>，然而Deepin自带的<strong><code>深度商店</code></strong>里面的<strong><code>Shadowsocks-Qt5</code></strong>虽然简洁明了的操作，但是就是无法科学上网，后来想到自己在Ubuntu里面玩过<strong><code>electron-ssr</code></strong>，于是决定在Deepin研究一下<strong><code>electron-ssr</code></strong></p>
-</blockquote>
-<h2 id="下载electron-ssr"><a href="#下载electron-ssr" class="headerlink" title="-下载electron-ssr"></a>-下载electron-ssr</h2><p>在<strong><code>electron-ssr</code></strong>项目地址的<a href="https://github.com/qingshuisiyuan/electron-ssr-backup/releases" target="_blank" rel="noopener">releases</a>下载<strong><code>.deb</code></strong>包。也可以用代码下载</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;github.com&#x2F;qingshuisiyuan&#x2F;electron-ssr-backup&#x2F;releases&#x2F;download&#x2F;v0.2.6&#x2F;electron-ssr-0.2.6.deb</span><br></pre></td></tr></table></figure>
+        <h2 id="一、联网"><a href="#一、联网" class="headerlink" title="一、联网"></a>一、联网</h2><p>局域网</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dhcpcd</span><br></pre></td></tr></table></figure>
 
-<p><a href="https://moetu.org/image/VJEIx" target="_blank" rel="noopener"><img src="https://file.moetu.org/images/2019/11/07/debfdd949430f8d6d74.png" alt="electron-ssr下载地址"></a></p>
-<h2 id="安装electron-ssr"><a href="#安装electron-ssr" class="headerlink" title="-安装electron-ssr"></a>-安装electron-ssr</h2><p>双击安装包安装即可</p>
-<h2 id="浏览器配置"><a href="#浏览器配置" class="headerlink" title="-浏览器配置"></a>-浏览器配置</h2><h3 id="Chrome浏览器"><a href="#Chrome浏览器" class="headerlink" title="Chrome浏览器"></a>Chrome浏览器</h3><p>Chrome修改代理是要下载插件，才可以的，所以我们需要下载<strong><code>Proxy SwitchOmega</code></strong>，可以在<a href="http://www.cnplugins.com/devtool/proxy-switchyomega/" target="_blank" rel="noopener">插件网</a>下载，下载完成后进入谷歌浏览器的扩展程序，打开右上角的<strong><code>开发者模式</code></strong>，然后拖拽上传即可。……</p>
+<p><img src="https://file.moetu.org/images/2020/02/15/16d356579c9b43215.png" alt="16d356579c9b43215.png"></p>
+<p>WIFI</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wifi-menu</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、ping网"><a href="#二、ping网" class="headerlink" title="二、ping网"></a>二、ping网</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping www.baidu.com	#ping完按 ctrl+c 取消</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://file.moetu.org/images/2020/02/15/214a9d9973071aad9.png" alt="214a9d9973071aad9.png"></p>
 <blockquote>
-<p>出现<strong><code>程序包无效:&quot;CRX_HEADER_INVALID&quot;</code></strong>的解决方案</p>
-</blockquote>
-<p>把插件的后缀<strong><code>.crx</code></strong>改成<strong><code>.zip</code></strong>，然后右键<strong><code>解压到当前文件夹</code></strong>，然后在扩展管理里面选择<strong><code>加载已解压的扩展程序</code></strong>，找到你解压的程序即可</p>
-<p><a href="https://moetu.org/image/VJT47" target="_blank" rel="noopener"><img src="https://file.moetu.org/images/2019/11/07/da3b286b3e755e80dc21eaf83cf2318bfb3cfd6f42e56ac6.png" alt="解压插件包"></a></p>
-<p>出现错误提示，无视即可<br><a href="https://moetu.org/image/VJIv5" target="_blank" rel="noopener"><img src="https://file.moetu.org/images/2019/11/07/adac288a38f3e5faf2e6550a41a5a3cb35642100fd49b683.png" alt="错误提示"></a></p>
-<p>然后在页面上找到插件的图标，选择为<strong><code>系统代理</code></strong><br><a href="https://moetu.org/image/VJLlS" target="_blank" rel="noopener"><img src="https://file.moetu.org/images/2019/11/07/e913e4d2108a4edb07afd906573f418a03ab6b39f337588a.png" alt="系统代理"></a></p>
-<h3 id="火狐浏览器-amp-其他浏览器"><a href="#火狐浏览器-amp-其他浏览器" class="headerlink" title="火狐浏览器&amp;其他浏览器"></a>火狐浏览器&amp;其他浏览器</h3><p>火狐浏览器自带代理管理，切换为<strong><code>系统代理</code></strong>即可，其他浏览器自行<a href="www.baidu.com">百度</a>查询</p>
-<h2 id="系统代理修改"><a href="#系统代理修改" class="headerlink" title="-系统代理修改"></a>-系统代理修改</h2><blockquote>
-<p>设置&#160;&#160;&gt;&gt;&#160;&#160;网络&#160;&#160;&gt;&gt;&#160;&#160;系统代理&#160;&#160;&gt;&gt;&#160;&#160;手动</p>
-</blockquote>
-<p><a href="https://moetu.org/image/VJB5Z" target="_blank" rel="noopener"><img src="https://file.moetu.org/images/2019/11/07/7d82513a372bd52051abf5e9cd2384f87a795b0473bbecee.png" alt="系统代理修改"></a></p>
-<p>其他默认，点击确定就行。</p>
-<h2 id="electron-ssr配置"><a href="#electron-ssr配置" class="headerlink" title="-electron-ssr配置"></a>-electron-ssr配置</h2><blockquote>
-<p><strong><code>electron-ssr</code></strong>的设置和Windows里面的<strong><code>Shadowsocks</code></strong>操作基本类似，可以直接导入链接，也可以导入订阅地址，所以这里就不多演示了。</p>
-</blockquote>
-<!--<div align="center">-->
+<h3 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h3><p>远程连接安装（<strong>真机安装可以忽略这个步骤</strong>）</p>
+<blockquote>
+<p>开启ssh</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start ssh</span><br></pre></td></tr></table></figure>
 
+<p>查看IP地址</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip a</span><br></pre></td></tr></table></figure>
 
+<p>在另外的电脑上连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">用户名：root</span><br><span class="line">密码：上面设置的</span><br><span class="line">端口：22</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<h2 id="三、更新系统时间"><a href="#三、更新系统时间" class="headerlink" title="三、更新系统时间"></a>三、更新系统时间</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timedatectl set-ntp true</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、创建硬盘分区"><a href="#四、创建硬盘分区" class="headerlink" title="四、创建硬盘分区"></a>四、创建硬盘分区</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l	#列出电脑的磁盘个数</span><br><span class="line">fdisk &#x2F;dev&#x2F;sda	#选择哪个盘进行下一步，我的是sda为我本次要装系统的盘，所以这里选择的是sda，每个人不同，请仔细查看，更改为自己的序号</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://file.moetu.org/images/2020/02/15/493866a96391feeef.png" alt="493866a96391feeef.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">g   #将硬盘格式设置为GUID</span><br><span class="line">n   #新建分区</span><br><span class="line">+512M   #设置EFI分区大小，可自行更改  </span><br><span class="line">n</span><br><span class="line">+35G    #设置系统盘大小，可自行更改  </span><br><span class="line">n</span><br><span class="line">+2G #设置交换空间大小，可以自行更改  </span><br><span class="line">n   #剩下的设置为用户盘</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://file.moetu.org/images/2020/02/15/4.1d590766a1856c042.png" alt="4.1d590766a1856c042.png"></p>
+<p>现在分区已经全部创建完成了，但是所有的分区的格式都是为<code>Linux filesystem</code>类型，我们要修改EFI分区和交换分区的类型</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">t   #更改分区格式 </span><br><span class="line">1   #需要更改的分区号</span><br><span class="line">1   #更改为EFI System  </span><br><span class="line">t</span><br><span class="line">3</span><br><span class="line">19  #更改为Linux swap</span><br><span class="line">p	#预览</span><br><span class="line">w   #保存退出</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://file.moetu.org/images/2020/02/15/4.29182557b88ae762e.png" alt="4.29182557b88ae762e.png"></p>
+<h2 id="五、格式化挂载点"><a href="#五、格式化挂载点" class="headerlink" title="五、格式化挂载点"></a>五、格式化挂载点</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkfs.fat -F32 /dev/sda1	#FAT32格式化命令，sda1更改为自己的磁盘号</span><br><span class="line">mkfs.ext4 /dev/sda2	#EXT4格式化命令，sdc2、sda4更改为自己的磁盘号</span><br><span class="line">mkfs.ext4 /dev/sda4</span><br><span class="line"></span><br><span class="line">mkswap /dev/sda3    #设置交换空间，sda3更改为自己的磁盘号</span><br><span class="line">swapon /dev/sda3    #打开交换空间，sda3更改为自己的磁盘号</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://file.moetu.org/images/2020/02/15/51e7a33f55bf8a00b.png" alt="51e7a33f55bf8a00b.png"></p>
+<p><img src="https://file.moetu.org/images/2020/02/15/5.1b9683d6ca4eec32d.png" alt="5.1b9683d6ca4eec32d.png"></p>
+<h2 id="六、挂载分区"><a href="#六、挂载分区" class="headerlink" title="六、挂载分区"></a>六、挂载分区</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/sda2 /mnt #把sda2挂载到/mnt目录下，sda2更改为自己的磁盘号</span><br><span class="line">mkdir /mnt/boot #新建boot目录</span><br><span class="line">mkdir /mnt/home #新建home目录</span><br><span class="line">mount /dev/sda1 /mnt/boot   #把sdc1挂载到/mnt/boot目录下，sda1更改为自己的磁盘号</span><br><span class="line">mount /dev/sda4 /mnt/home   #把sdc4挂载到/mnt/home目录下，sda4更改为自己的磁盘号</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://file.moetu.org/images/2020/02/15/696a499f905a78c10.png" alt="696a499f905a78c10.png"></p>
+<h2 id="七、更换镜像源"><a href="#七、更换镜像源" class="headerlink" title="七、更换镜像源"></a>七、更换镜像源</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">#更换为清华的源，这样下面下载东西的时候，会快很多</span></span><br><span class="line">nano /etc/pacman.d/mirrorlist   #打开mirrorlist文件</span><br></pre></td></tr></table></figure>
+
+<p>按住 <code>ctrl+w</code> 输入 <code>tsinghua</code> 回车<br>看到光标已经跳到了<code>tsinghua</code>字段下<br>按住 <code>ctrl+k</code> 剪切字段<br>光标移到 <code>## Australia</code> 上方<br>按住 <code>ctrl+u</code> 粘贴字段<br>按住 <code>ctrl+x</code> 保存更改 输入 <code>Y</code> 确认更改</p>
+<p><img src="https://file.moetu.org/images/2020/02/15/7b5696da0cb018360.png" alt="7b5696da0cb018360.png"></p>
+<p><img src="https://file.moetu.org/images/2020/02/15/7.15dd576982cf37a7a.png" alt="7.15dd576982cf37a7a.png"></p>
+<h2 id="八、拉取基本安装件"><a href="#八、拉取基本安装件" class="headerlink" title="八、拉取基本安装件"></a>八、拉取基本安装件</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt base base-devel linux linux-firmware  </span><br><span class="line"><span class="section">#如果没有添加linux linux-firmware字段，安装完成后，重启进入的不是系统，而是进入到grub界面</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="九、生成挂载文件"><a href="#九、生成挂载文件" class="headerlink" title="九、生成挂载文件"></a>九、生成挂载文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">genfstab -U &#x2F;mnt &gt;&gt; &#x2F;mnt&#x2F;etc&#x2F;fstab  #把挂载模式保存成配置文件放到操作系统里，这样每次开机就会自动识别挂载</span><br><span class="line">cat &#x2F;mnt&#x2F;etc&#x2F;fstab #查看fstab文件</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://file.moetu.org/images/2020/02/15/92a4ae9ec64dbf699.png" alt="92a4ae9ec64dbf699.png"></p>
+<h2 id="十、根目录切硬盘"><a href="#十、根目录切硬盘" class="headerlink" title="十、根目录切硬盘"></a>十、根目录切硬盘</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot &#x2F;mnt    #进入到硬盘系统</span><br></pre></td></tr></table></figure>
+
+<h2 id="十一、调整时区软链接"><a href="#十一、调整时区软链接" class="headerlink" title="十一、调整时区软链接"></a>十一、调整时区软链接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -sf &#x2F;usr&#x2F;share&#x2F;zoneinfo&#x2F;Asia&#x2F;Shanghai &#x2F;etc&#x2F;localtime</span><br><span class="line">hwclock --systohc</span><br></pre></td></tr></table></figure>
+
+<h2 id="十二、修改本地语言"><a href="#十二、修改本地语言" class="headerlink" title="十二、修改本地语言"></a>十二、修改本地语言</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman -S nano</span><br><span class="line">nano /etc/locale.gen</span><br></pre></td></tr></table></figure>
+
+<p>按住 <code>ctrl+w</code> 输入 <code>zh_CN</code> 回车<br>看到光标已经跳到了<code>zh_CN</code> 字段下<br>找到 <code>zh_CN.UTF-8 UTF-8</code><br>把前面的 <code>#</code> 注释去掉<br>按住 <code>ctrl+w</code> 输入 <code>en_US</code> 回车<br>看到光标已经跳到了<code>en_US</code> 字段下<br>找到 <code>en_US.UTF-8 UTF-8</code><br>把前面的 <code>#</code> 注释去掉<br>按住 <code>ctrl+x</code> 保存更改 输入 <code>Y</code> 确认更改</p>
+<p><img src="https://file.moetu.org/images/2020/02/15/129265b23f933f2b48.png" alt="129265b23f933f2b48.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locale-gen #将语言更改本地化</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://file.moetu.org/images/2020/02/15/12.165fab7689a1edaa2.png" alt="12.165fab7689a1edaa2.png"></p>
+<h2 id="十三、创建变量"><a href="#十三、创建变量" class="headerlink" title="十三、创建变量"></a>十三、创建变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;LANG&#x3D;zh_CN.UTF-8&quot; &gt;&gt; &#x2F;etc&#x2F;locale.conf #给系统创建一个语言变量</span><br></pre></td></tr></table></figure>
+
+<h2 id="十四、设置密码"><a href="#十四、设置密码" class="headerlink" title="十四、设置密码"></a>十四、设置密码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd  #设置密码</span><br></pre></td></tr></table></figure>
+
+<h2 id="十五、安装相关包、引导"><a href="#十五、安装相关包、引导" class="headerlink" title="十五、安装相关包、引导"></a>十五、安装相关包、引导</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pacman -S intel-ucode #安装微码引导员 -&gt; intel平台</span><br><span class="line">pacman -S amd-ucode #安装微码引导员 -&gt; amd平台</span><br><span class="line"><span class="code">    </span></span><br><span class="line">pacman -S iw wpa_supplicant dialog net-tools networkmanager</span><br><span class="line">pacman -S dhcpcd     #安装网络相关的包，这个包不安装，重启之后就会没有网络</span><br><span class="line">systemctl enable dhcpcd #将dhcpcd设置为开机启动</span><br><span class="line">pacman -S grub efibootmgr   #安装grub引导工具</span><br><span class="line">pacman -S os-prober #如果是双系统的话，就需要执行这个命令，单系统则不需要</span><br><span class="line">grub-install --target=x86_64-efi --efi-directory=/boot --bootloader=Arch    #生成grub启动配置</span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg    #设置grub配置</span><br></pre></td></tr></table></figure>
+
+<p>如果你出现了以下错误，就证明你的系统是<code>BIOS</code>启动的，而我这个教程是<code>UEFI</code>启动的</p>
+<p><img src="https://file.moetu.org/images/2020/02/15/155414e08654ebebe9.png" alt="155414e08654ebebe9.png"></p>
+<p>下面这两个才是正确的输出</p>
+<p><img src="https://file.moetu.org/images/2020/02/15/15.1aea9110f818d754e.png" alt="15.1aea9110f818d754e.png"></p>
+<p><img src="https://file.moetu.org/images/2020/02/15/15.243828a61ddcdfb3f.png" alt="15.243828a61ddcdfb3f.png"></p>
+<h2 id="十六、初步安装完成"><a href="#十六、初步安装完成" class="headerlink" title="十六、初步安装完成"></a>十六、初步安装完成</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">exit #退出，回到启动盘系统</span><br><span class="line">umount &#x2F;mnt&#x2F;home    #卸载挂载目录</span><br><span class="line">umount &#x2F;mnt&#x2F;boot</span><br><span class="line">umount &#x2F;mnt</span><br><span class="line">reboot  #重启</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://file.moetu.org/images/2020/02/15/162f50659ec8a98ad7.png" alt="162f50659ec8a98ad7.png"></p>
+<blockquote>
+<pre><code>如果你是需要用到远程连接的，就要查看下面的命令，开启ssh服务
+Archlinux开启ssh服务命令：
+systemctl enable sshd.service  开机启动
+systemctl start sshd.service     立即启动
+systemctl restart sshd.service   立即重启</code></pre></blockquote>
+<p>重启之后，就会进入系统，让你输入账户密码登录。至此第一步完成了</p>
 
       </div>
       
@@ -398,7 +454,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-16T15:08:43+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-16T15:48:23+08:00">
   <a class='notlink'>
     <i class="fas fa-clock" aria-hidden="true"></i>
     <p>updated at Feb 16, 2020</p>
@@ -423,7 +479,7 @@
       
         <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://xiongaoxr.work/2019/11/07/electron-ssr%E5%9C%A8deepin%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/&title=electron-ssr在deepin的使用方法 | 熊贰de窝&summary="
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://xiongaoxr.work/2020/02/16/ArchLinux%E2%80%9C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%9D--%E5%AE%89%E8%A3%85ArchLinux%E6%95%99%E7%A8%8B%EF%BC%88UEFI%EF%BC%89/&title=ArchLinux“三部曲”--安装ArchLinux教程（UEFI） | 熊贰de窝&summary="
           
           >
           
@@ -435,7 +491,7 @@
       
         <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://xiongaoxr.work/2019/11/07/electron-ssr%E5%9C%A8deepin%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/&title=electron-ssr在deepin的使用方法 | 熊贰de窝&summary="
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://xiongaoxr.work/2020/02/16/ArchLinux%E2%80%9C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%9D--%E5%AE%89%E8%A3%85ArchLinux%E6%95%99%E7%A8%8B%EF%BC%88UEFI%EF%BC%89/&title=ArchLinux“三部曲”--安装ArchLinux教程（UEFI） | 熊贰de窝&summary="
           
           >
           
@@ -447,7 +503,7 @@
       
         <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=https://xiongaoxr.work/2019/11/07/electron-ssr%E5%9C%A8deepin%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/&title=electron-ssr在deepin的使用方法 | 熊贰de窝&summary="
+          href="http://service.weibo.com/share/share.php?url=https://xiongaoxr.work/2020/02/16/ArchLinux%E2%80%9C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%9D--%E5%AE%89%E8%A3%85ArchLinux%E6%95%99%E7%A8%8B%EF%BC%88UEFI%EF%BC%89/&title=ArchLinux“三部曲”--安装ArchLinux教程（UEFI） | 熊贰de窝&summary="
           
           >
           
@@ -475,9 +531,9 @@
                       <span class="art-item-left">
                           <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
                           <h4>
-                              <a href="/2019/11/10/Linux%E9%83%A8%E7%BD%B2Hexo%E5%8D%9A%E5%AE%A2/" rel="prev" title="Linux部署Hexo博客">
+                              <a href="/2020/02/16/ArchLinux%E2%80%9C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%9D--%E5%AE%89%E8%A3%85KDE%E6%95%99%E7%A8%8B/" rel="prev" title="ArchLinux“三部曲”--安装KDE教程">
                                 
-                                    Linux部署Hexo博客
+                                    ArchLinux“三部曲”--安装KDE教程
                                 
                               </a>
                           </h4>
@@ -490,6 +546,25 @@
                       </span>
                   </section>
               
+              
+                  <section class="next">
+                      <span class="art-item-right" aria-hidden="true">
+                          <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                          <h4>
+                              <a href="/2019/11/10/Linux%E9%83%A8%E7%BD%B2Hexo%E5%8D%9A%E5%AE%A2/" rel="prev" title="Linux部署Hexo博客">
+                                  
+                                      Linux部署Hexo博客
+                                  
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/tags/%E6%95%99%E7%A8%8B-Linux/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> -教程 -Linux</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
               
           </div>
       
@@ -515,7 +590,7 @@
 
   <script>
     window.subData = {
-      title: 'electron-ssr在deepin的使用方法',
+      title: 'ArchLinux“三部曲”--安装ArchLinux教程（UEFI）',
       tools: true
     }
   </script>
@@ -593,7 +668,7 @@
 </header>
 
     <div class='content pure'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载electron-ssr"><span class="toc-text">-下载electron-ssr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装electron-ssr"><span class="toc-text">-安装electron-ssr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器配置"><span class="toc-text">-浏览器配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chrome浏览器"><span class="toc-text">Chrome浏览器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#火狐浏览器-amp-其他浏览器"><span class="toc-text">火狐浏览器&amp;其他浏览器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#系统代理修改"><span class="toc-text">-系统代理修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#electron-ssr配置"><span class="toc-text">-electron-ssr配置</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、联网"><span class="toc-text">一、联网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、ping网"><span class="toc-text">二、ping网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题外话"><span class="toc-text">题外话</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、更新系统时间"><span class="toc-text">三、更新系统时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、创建硬盘分区"><span class="toc-text">四、创建硬盘分区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、格式化挂载点"><span class="toc-text">五、格式化挂载点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、挂载分区"><span class="toc-text">六、挂载分区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、更换镜像源"><span class="toc-text">七、更换镜像源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、拉取基本安装件"><span class="toc-text">八、拉取基本安装件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九、生成挂载文件"><span class="toc-text">九、生成挂载文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十、根目录切硬盘"><span class="toc-text">十、根目录切硬盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十一、调整时区软链接"><span class="toc-text">十一、调整时区软链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十二、修改本地语言"><span class="toc-text">十二、修改本地语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十三、创建变量"><span class="toc-text">十三、创建变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十四、设置密码"><span class="toc-text">十四、设置密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十五、安装相关包、引导"><span class="toc-text">十五、安装相关包、引导</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十六、初步安装完成"><span class="toc-text">十六、初步安装完成</span></a></li></ol>
     </div>
   </section>
 
