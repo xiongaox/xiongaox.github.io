@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>ArchLinux“三部曲”--安装KDE教程 | 熊贰de窝</title>
+  
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css">
+  
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.10.22/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post half'>
+      
+        
+  <h1 class='title'>xiongaox`s Blog</h1>
+
+
+  <div class="m_search">
+    <form name="searchform" class="form u-search-form">
+      <input type="text" class="input u-search-input" placeholder="" />
+      <i class="icon fas fa-search fa-fw"></i>
+    </form>
+  </div>
+
+<div class='menu navgation'>
+  <ul class='h-list'>
+    
+      
+        <li>
+          <a class="nav home" href="/"
+            
+            
+            id="home">
+            <i class='fas fa-rss fa-fw'></i>&nbsp;博文
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/friends/index.html"
+            
+              rel="nofollow"
+            
+            
+            id="friendsindex.html">
+            <i class='fas fa-link fa-fw'></i>&nbsp;友链
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/about/404.html"
+            
+              rel="nofollow"
+            
+            
+            id="about404.html">
+            <i class='fas fa-info-circle fa-fw'></i>&nbsp;关于
+          </a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+      
+    </cover>
+    <header class="l_header pure">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar" class="pure"></div>
+  </div>
+
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          熊贰de窝
+        
+      </a>
+			<div class='menu navgation'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a class="nav flat-box" href="/"
+                  
+                  
+                  id="home">
+									<i class='fas fa-grin fa-fw'></i>&nbsp;示例
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/categories/404.html"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="categories404.html">
+									<i class='fas fa-folder-open fa-fw'></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/tags/404.html"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="tags404.html">
+									<i class='fas fa-hashtag fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/archives/index.html"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="archivesindex.html">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<i class="icon fas fa-search fa-fw"></i>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+        
+          <li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu navgation">
+      <ul>
+        
+          
+            <li>
+							<a class="nav flat-box" href="/"
+                
+                
+                id="home">
+								<i class='fas fa-clock fa-fw'></i>&nbsp;近期文章
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/archives/index.html"
+                
+                  rel="nofollow"
+                
+                
+                id="archivesindex.html">
+								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/friends/404.html"
+                
+                  rel="nofollow"
+                
+                
+                id="friends404.html">
+								<i class='fas fa-link fa-fw'></i>&nbsp;我的友链
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="https://xaoxuu.com/wiki/material-x/"
+                
+                  rel="nofollow"
+                
+                
+                id="https:xaoxuu.comwikimaterial-x">
+								<i class='fas fa-book fa-fw'></i>&nbsp;主题文档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/about/404.html"
+                
+                  rel="nofollow"
+                
+                
+                id="about404.html">
+								<i class='fas fa-info-circle fa-fw'></i>&nbsp;关于小站
+							</a>
+            </li>
+          
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+  </div>
+
+
+  <div class="l_body">
+    <div class='body-wrapper'>
+      <div class='l_main'>
+  
+
+  <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/2020/02/23/ArchLinux%E2%80%9C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%9D--%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6&%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
+        ArchLinux“三部曲”--安装KDE教程
+      </a>
+    </h1>
+  
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://xiongaoxr.work" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>xiongaox</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-02-23</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/ArchLinux/' rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>ArchLinux</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class='notlink'>
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
+    </div>
+  
+
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <h2 id="一、更换ArchLinuxcn源（清华源）"><a href="#一、更换ArchLinuxcn源（清华源）" class="headerlink" title="一、更换ArchLinuxcn源（清华源）"></a>一、更换ArchLinuxcn源（清华源）</h2><blockquote>
+<p>我们这里使用的是清华源，清华源的好处上面我说了有一些国内常用的中文软件这些，我们换成清华源的好处就是<code>ArchLinux</code>中文社区驱动的非官方用户仓库。包含中文用户常用软件、工具、字体/美化包等。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano &#x2F;etc&#x2F;pacman.conf</span><br></pre></td></tr></table></figure>
+
+<p>把<code>multilib</code>和<code>Include</code>前面的注释去掉，文件末尾添加以下两行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server &#x3D; https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;archlinuxcn&#x2F;$arch</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://file.moetu.org/images/2020/02/22/369cbe84474a2da3cf.png" alt="369cbe84474a2da3cf.png"></p>
+<blockquote>
+<p>然后很多教程在这里配置就结束了，就遇到一些问题，比如我们安装某些软件的时候会提示apg签名错误损坏等这些，这个时因为没有导入key的原因，我们需要导入以下GPG KEY ，具体操作是</p>
+</blockquote>
+<p>安装archlinuxcn-keyring包导入GPG key</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Syy</span><br><span class="line">sudo pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure>
+
+<p>我们再更新一下源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Sy</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、安装git"><a href="#二、安装git" class="headerlink" title="二、安装git"></a>二、安装git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S git</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、安装zsh"><a href="#三、安装zsh" class="headerlink" title="三、安装zsh"></a>三、安装zsh</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chsh -l	#列出本机已有终端</span><br><span class="line">sudo pacman -S zsh</span><br><span class="line">chsh	#更改shell</span><br><span class="line">&#x2F;bin&#x2F;zsh</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://file.moetu.org/images/2020/02/22/37bb393275df61c452.png" alt="37bb393275df61c452.png"></p>
+<p>然后注销一下电脑，打开终端，执行<code>chsh</code>查看是否已经改过来了，如果没有，则再次执行<code>/bin/zsh</code></p>
+<h2 id="四、wget-拉取oh-my-zsh"><a href="#四、wget-拉取oh-my-zsh" class="headerlink" title="四、wget 拉取oh-my-zsh"></a>四、wget 拉取oh-my-zsh</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(wget http:&#x2F;&#x2F;git.oschina.net&#x2F;yangchendong&#x2F;oh-my-zsh&#x2F;raw&#x2F;master&#x2F;tools&#x2F;install.sh -O -)&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://file.moetu.org/images/2020/02/22/397b7a08bdc2dbe957.png" alt="397b7a08bdc2dbe957.png"></p>
+<p>这一步用普通用户安装命令就可以了，不然普通用户显示不了更改后的主题，如果已经在root用户下，使用命令切换成普通用户名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su 你的用户名</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://file.moetu.org/images/2020/02/22/479c7f29acfdb73cb5.png" alt="479c7f29acfdb73cb5.png"></p>
+<h3 id="配置oh-my-zsh"><a href="#配置oh-my-zsh" class="headerlink" title="配置oh-my-zsh"></a>配置oh-my-zsh</h3><p>编辑它的配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano ~&#x2F;.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>改成现在很热门的主题<code>agnoster</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZSH_THEME&#x3D;&quot;agnoster&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://file.moetu.org/images/2020/02/22/46bc142d44cca03bc1.png" alt="46bc142d44cca03bc1.png"></p>
+<p>配置字体</p>
+<p>若出现乱码则是缺少Powerline字体</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;powerline&#x2F;powerline&#x2F;develop&#x2F;font&#x2F;10-powerline-symbols.conf</span><br><span class="line">wget https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;powerline&#x2F;powerline&#x2F;develop&#x2F;font&#x2F;PowerlineSymbols.otf</span><br><span class="line">sudo mkdir &#x2F;usr&#x2F;share&#x2F;fonts&#x2F;OTF</span><br><span class="line">sudo cp 10-powerline-symbols.conf &#x2F;usr&#x2F;share&#x2F;fonts&#x2F;OTF&#x2F;</span><br><span class="line">sudo mv 10-powerline-symbols.conf &#x2F;etc&#x2F;fonts&#x2F;conf.d&#x2F;</span><br><span class="line">sudo mv PowerlineSymbols.otf &#x2F;usr&#x2F;share&#x2F;fonts&#x2F;OTF&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>重启终端</p>
+<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano ~&#x2F;.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>自带插件都在<code>~/.oh-my-zsh/plugins</code>中</p>
+<p><img src="https://file.moetu.org/images/2020/02/22/48590535e3658bb37a.png" alt="48590535e3658bb37a.png"></p>
+<ul>
+<li>extract</li>
+</ul>
+<p>解压文件用的，所有的压缩文件，都可以用<code>x filename</code>,不需要记忆参数</p>
+<p>但是比如像<code>.zip</code>后缀的压缩文件，还是需要先安装<code>unzip</code>才可以使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S unzip</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>sudo</li>
+</ul>
+<p>按两下<code>ESC</code>在命令开头增加<code>sudo</code>命令</p>
+<ul>
+<li>zsh-sutosuggestions(代码补全)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git:&#x2F;&#x2F;github.com&#x2F;zsh-users&#x2F;zsh-autosuggestions $ZSH_CUSTOM&#x2F;plugins&#x2F;zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+
+<p>在<code>~/.zshrc</code>中配置 plugins=(其他的插件 zsh-autosuggestions)</p>
+<p>因为用<code>→</code>不太方便，所以可以自定义补全快捷键，这里设置为<code>逗号</code>，如果觉得这个逗号不合适，自行更改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bindkey &#39;,&#39; autosuggest-accept</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>zsh-syntax-highlighting</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;zsh-users&#x2F;zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~&#x2F;.oh-my-zsh&#x2F;custom&#125;&#x2F;plugins&#x2F;zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+
+<p>把<code>zsh-syntax-highlighting</code>插入到<code>plugins</code>，一定要保证这个参数是在最后面，不然有可能会报错</p>
+<ul>
+<li>bat</li>
+</ul>
+<p><code>bat</code>代替<code>cat</code></p>
+<p><code>cat</code>某个文件，可以在终端直接输出文件内容，<code>bat</code>相比<code>cat</code>增加了行号和代码高亮</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S bat</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://file.moetu.org/images/2020/02/22/493f7c0c5e9fd5aed4.png" alt="493f7c0c5e9fd5aed4.png"></p>
+<h2 id="五、安装latte-dock"><a href="#五、安装latte-dock" class="headerlink" title="五、安装latte-dock"></a>五、安装latte-dock</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S latte-dock</span><br></pre></td></tr></table></figure>
+
+<p>然后在应用程序打开，根据自己的喜好改，这个插件的自定义也比较高的</p>
+<h2 id="六、QV2ray安装"><a href="#六、QV2ray安装" class="headerlink" title="六、QV2ray安装"></a>六、QV2ray安装</h2><p>QV2ray 依赖 V2ray，所以还需要下载v2ray</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S v2ray</span><br></pre></td></tr></table></figure>
+
+<p>安装QV2ray</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S qv2ray</span><br></pre></td></tr></table></figure>
+
+<p>之后打开QV2ray会自动检查核心</p>
+<blockquote>
+<p>系统设置  -&gt;  设置  -&gt;  代理  -&gt;  自动检测代理配置<br>这里建议使用火狐浏览器</p>
+</blockquote>
+<h2 id="七、VirtualBox安装"><a href="#七、VirtualBox安装" class="headerlink" title="七、VirtualBox安装"></a>七、VirtualBox安装</h2><p>首先安装 linux-headers</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S linux-headers</span><br></pre></td></tr></table></figure>
+
+<p>其次确认linux内核的版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">uname -r </span><br><span class="line"># 如果和header的版本不一致，需要更新内核。否则的话会在安装virtualbox的时候报错“missing kernal module tree”。</span><br><span class="line">sudo pacman -S linux</span><br></pre></td></tr></table></figure>
+
+<p>安装virtualbox</p>
+<p>安装的时候一定要选择 virtualbox-host-dkms</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S virtualbox</span><br></pre></td></tr></table></figure>
+
+<p>推荐安装virtual-guest-iso</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S virtualbox-guest-iso</span><br></pre></td></tr></table></figure>
+
+<p>重启电脑</p>
+<h2 id="八、team-viewer安装"><a href="#八、team-viewer安装" class="headerlink" title="八、team-viewer安装"></a>八、team-viewer安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S teamviewer</span><br><span class="line">sudo teamviewer --daemon start	#启动服务</span><br><span class="line">sudo teamviewer --daemon enable	#设置为开机启动</span><br></pre></td></tr></table></figure>
+
+<h2 id="九、screenfetch安装"><a href="#九、screenfetch安装" class="headerlink" title="九、screenfetch安装"></a>九、screenfetch安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pcaman -S screenfetch</span><br></pre></td></tr></table></figure>
+
+<p>终端执行：screenfetch就行</p>
+<p><img src="https://file.moetu.org/images/2020/02/22/2988d629c9a014cf26.png" alt="2988d629c9a014cf26.png"></p>
+<blockquote>
+<p>其实还有很多关于KDE的美化还没有写出来，不是不想写，而是虚拟机安装的KDE桌面实在太卡了，折腾着折腾着就卡死了，只有作罢~~</p>
+<p>推荐去哔哩哔哩看<a href="https://www.bilibili.com/video/av65113978" target="_blank" rel="noopener">kde美化教程</a></p>
+</blockquote>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="1、进入系统后发现，界面只是局部汉化"><a href="#1、进入系统后发现，界面只是局部汉化" class="headerlink" title="1、进入系统后发现，界面只是局部汉化"></a>1、进入系统后发现，界面只是局部汉化</h3><p><img src="https://file.moetu.org/images/2020/02/15/269d8c9e56f9329633.png" alt="269d8c9e56f9329633.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano &#x2F;etc&#x2F;locale.gen</span><br></pre></td></tr></table></figure>
+
+<p>把里面前缀是<code>zh_CN</code>的字段都把前面的<code>#</code>给去掉，然后把上面的<code>en_US.UTF-8.UTF-8</code>的注释打上</p>
+<p><img src="https://file.moetu.org/images/2020/02/15/27a298ce995d86fada.png" alt="27a298ce995d86fada.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo locale-gen</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://file.moetu.org/images/2020/02/15/28fb465beef11f3482.png" alt="28fb465beef11f3482.png"></p>
+<p>注销用户，或者重启，即可解决</p>
+<h3 id="2、没有图形界面，刚登陆进去出现乱码情况"><a href="#2、没有图形界面，刚登陆进去出现乱码情况" class="headerlink" title="2、没有图形界面，刚登陆进去出现乱码情况"></a>2、没有图形界面，刚登陆进去出现乱码情况</h3><p><img src="https://file.moetu.org/images/2020/02/15/17.1e203991b084b1e21.png" alt="17.1e203991b084b1e21.png"></p>
+<p>参考<strong>进入系统后发现，界面只是局部汉化</strong>解决方法，只不过是把所有的<code>zh_CN</code>前面添加上<code>#</code>，然后再执行<code>locale-gen</code>，重启就好了。</p>
+<h3 id="3、VirtualBox虚拟机安装ArchLinux后无法正常开机，还是进入启动盘引导界面"><a href="#3、VirtualBox虚拟机安装ArchLinux后无法正常开机，还是进入启动盘引导界面" class="headerlink" title="3、VirtualBox虚拟机安装ArchLinux后无法正常开机，还是进入启动盘引导界面"></a>3、VirtualBox虚拟机安装ArchLinux后无法正常开机，还是进入启动盘引导界面</h3><p>我将虚拟机设置为efi启动方式，在正常配置完引导分区、根分区后，所做的操作也都是正常的，可是关闭虚拟机再次启动后，发现系统再次进入安装盘<code>archiso</code>，在调整启动顺序，卸载安装盘后，系统直接无法启动了，并且出现了shell界面，这表示引导出现了严重的问题</p>
+<p>但是我确认我的安装是没有问题的</p>
+<p>最终我确认了，是virtualbox本身的efi支持功能出现了问题——引导文件的位置和名字命名不正确，导致grub无法正常工作。可能是virtualbox没有意识到grub改变了命名要求，也可能正相反</p>
+<p><img src="https://file.moetu.org/images/2020/02/15/3043c10b13015fa0e5.png" alt="3043c10b13015fa0e5.png"></p>
+<p>首先先关机，然后移除虚拟盘</p>
+<p><img src="https://file.moetu.org/images/2020/02/15/3164d2eb5b9dff0591.png" alt="3164d2eb5b9dff0591.png"></p>
+<p>重启进入shell界面里</p>
+<p><img src="https://file.moetu.org/images/2020/02/15/3230ebdeeb26988db5.png" alt="3230ebdeeb26988db5.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bcfg boot dump -v</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://file.moetu.org/images/2020/02/15/338d8834618fcee6d9.png" alt="338d8834618fcee6d9.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fs0: 	#进入到引导分区文件里面</span><br><span class="line">ls</span><br><span class="line">cd EFI</span><br><span class="line">mkdir boot</span><br><span class="line">cd Arch</span><br><span class="line">cp grubx64.efi FS0:&#x2F;EFI&#x2F;boot 	#复制.efi文件</span><br><span class="line">cd ..</span><br><span class="line">cd boot</span><br><span class="line">mv grubx64.efi bootx64.efi 	#重命名.efi文件</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://file.moetu.org/images/2020/02/15/34c4a5f1da654af413.png" alt="34c4a5f1da654af413.png"></p>
+<p>重启只有就会进入到正常界面了</p>
+<p><img src="https://file.moetu.org/images/2020/02/15/35fb28a2af1e9d4000.png" alt="35fb28a2af1e9d4000.png"></p>
+<p>来源于：<a href="https://www.dazhuanlan.com/2019/12/09/5dee4c61bf832/" target="_blank" rel="noopener">可能是virtualbox没有意识到grub改变了命名要求，也可能正相反</a></p>
+<h3 id="4、U盘挂载问题"><a href="#4、U盘挂载问题" class="headerlink" title="4、U盘挂载问题"></a>4、U盘挂载问题</h3><p>ArchLinux纯净起来却有很多难搞的地方，就比如这个挂载问题，就是需要自己创建挂载分区挂载你的设备，否则是没有反应的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l	#查看自己的U盘是那个</span><br><span class="line">mkdir -p &#x2F;mnt&#x2F;disk</span><br><span class="line">mount &#x2F;dev&#x2F;sdxx &#x2F;mnt&#x2F;disk&#x2F;	#sdxx替换为你U盘的那个序号</span><br><span class="line">sudo chmod -R 777 &#x2F;mnt&#x2F;disk&#x2F;	#赋权，否则有可能进不去文件夹</span><br></pre></td></tr></table></figure>
+
+
+      </div>
+      
+        <br>
+        
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-02-23T10:22:30+08:00">
+  <a class='notlink'>
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>updated at Feb 23, 2020</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%95%99%E7%A8%8B-Linux/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>-教程 -Linux</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://xiongaoxr.work/2020/02/23/ArchLinux%E2%80%9C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%9D--%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6&%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/&title=ArchLinux“三部曲”--安装KDE教程 | 熊贰de窝&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://xiongaoxr.work/2020/02/23/ArchLinux%E2%80%9C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%9D--%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6&%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/&title=ArchLinux“三部曲”--安装KDE教程 | 熊贰de窝&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://xiongaoxr.work/2020/02/23/ArchLinux%E2%80%9C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%9D--%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6&%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/&title=ArchLinux“三部曲”--安装KDE教程 | 熊贰de窝&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+      
+      
+          <div class="prev-next">
+              
+              
+                  <section class="next">
+                      <span class="art-item-right" aria-hidden="true">
+                          <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                          <h4>
+                              <a href="/2020/02/16/ArchLinux%E2%80%9C%E4%B8%89%E9%83%A8%E6%9B%B2%E2%80%9D--%E5%AE%89%E8%A3%85KDE%E6%95%99%E7%A8%8B/" rel="prev" title="ArchLinux“三部曲”--安装KDE教程">
+                                  
+                                      ArchLinux“三部曲”--安装KDE教程
+                                  
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/tags/%E6%95%99%E7%A8%8B-Linux/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> -教程 -Linux</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
+          </div>
+      
+    </section>
+  </article>
+
+
+
+  <!-- 显示推荐文章和评论 -->
+
+
+
+  
+
+
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'ArchLinux“三部曲”--安装KDE教程',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+    
+    
+      
+      
+        
+          
+          
+            
+              <section class='widget author'>
+  <div class='content pure'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://file.moetu.org/images/2019/11/08/f67aebcb5f851a3437de813d6a77b88d84fe6294b5cd88a1.jpg'/>
+      </div>
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">或戎马一生，或与世无争</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget toc-wrapper'>
+    
+<header class='pure'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;TOC</div>
+  
+    <!-- <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div> -->
+  
+</header>
+
+    <div class='content pure'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、更换ArchLinuxcn源（清华源）"><span class="toc-text">一、更换ArchLinuxcn源（清华源）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、安装git"><span class="toc-text">二、安装git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、安装zsh"><span class="toc-text">三、安装zsh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、wget-拉取oh-my-zsh"><span class="toc-text">四、wget 拉取oh-my-zsh</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置oh-my-zsh"><span class="toc-text">配置oh-my-zsh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插件"><span class="toc-text">插件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、安装latte-dock"><span class="toc-text">五、安装latte-dock</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、QV2ray安装"><span class="toc-text">六、QV2ray安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、VirtualBox安装"><span class="toc-text">七、VirtualBox安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、team-viewer安装"><span class="toc-text">八、team-viewer安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九、screenfetch安装"><span class="toc-text">九、screenfetch安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见问题"><span class="toc-text">常见问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、进入系统后发现，界面只是局部汉化"><span class="toc-text">1、进入系统后发现，界面只是局部汉化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、没有图形界面，刚登陆进去出现乱码情况"><span class="toc-text">2、没有图形界面，刚登陆进去出现乱码情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、VirtualBox虚拟机安装ArchLinux后无法正常开机，还是进入启动盘引导界面"><span class="toc-text">3、VirtualBox虚拟机安装ArchLinux后无法正常开机，还是进入启动盘引导界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、U盘挂载问题"><span class="toc-text">4、U盘挂载问题</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget grid'>
+  
+<header class='pure'>
+  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;站内导航</div>
+  
+</header>
+
+  <div class='content pure'>
+    <ul class="grid navgation">
+      
+        <li><a class="flat-box" title="/" href="/"
+          
+          
+          id="home">
+          
+            <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
+          
+          近期文章
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/material-x/" href="https://xaoxuu.com/wiki/material-x/"
+          
+            rel="nofollow"
+          
+          
+          id="https:xaoxuu.comwikimaterial-x">
+          
+            <i class="fas fa-book fa-fw" aria-hidden="true"></i>
+          
+          主题文档
+        </a></li>
+      
+        <li><a class="flat-box" title="/about/404.html" href="/about/404.html"
+          
+            rel="nofollow"
+          
+          
+          id="about404.html">
+          
+            <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
+          
+          关于小站
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget category'>
+    
+<header class='pure'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Categories</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/categories/404.html"
+    title="categories/404.html">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content pure'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/ArchLinux/" href="/categories/ArchLinux/"><div class='name'>ArchLinux</div><div class='badge'>(3)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Deepin/" href="/categories/Deepin/"><div class='name'>Deepin</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Hexo/" href="/categories/Hexo/"><div class='name'>Hexo</div><div class='badge'>(1)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget tagcloud'>
+    
+<header class='pure'>
+  <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Hot Tags</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/tags/404.html"
+    title="tags/404.html">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content pure'>
+      <a href="/tags/%E6%95%99%E7%A8%8B-Linux/" style="font-size: 14px; color: #999">-教程 -Linux</a>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+    
+
+  
+</aside>
+
+<footer id="footer" class="clearfix">
+  
+  
+  <br>
+  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+  <div>
+    Use
+    <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
+    as theme
+    
+      , 
+      total visits
+      <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+      times
+    
+    . 
+  </div>
+</footer>
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+<script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+
+  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        if ('') {
+          $('').backstretch(
+          ["https://file.moetu.org/images/2019/08/10/82eb9b46cc0010a7874a75959d3dd9ec4d6cf74b91a643b1.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        } else {
+          $.backstretch(
+          ["https://file.moetu.org/images/2019/08/10/82eb9b46cc0010a7874a75959d3dd9ec4d6cf74b91a643b1.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.9/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.9/js/search.js"></script>
+
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "Copied";
+  let COPY_FAILURE = "Copy failed";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>Copy</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
