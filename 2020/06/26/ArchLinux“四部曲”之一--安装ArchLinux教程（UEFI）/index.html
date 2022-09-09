@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>ArchLinux“四部曲”之一--安装ArchLinux教程（UEFI） - 熊贰de窝</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="一、联网局域网 1dhcpcd   WIFI 1wifi-menu  二、ping网1ping www.baidu.com	#ping完按 ctrl+c 取消   题外话远程连接安装（真机安装可以忽略这个步骤）  开启ssh 1systemctl start ssh  查看IP地址 1ip a  在另外的电脑上连接 123用户名：root密码：上面设置的端口：22  三、更新系统时间1timeda">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ArchLinux“四部曲”之一--安装ArchLinux教程（UEFI）">
+<meta property="og:url" content="https://xiongaox.github.io/2020/06/26/ArchLinux%E2%80%9C%E5%9B%9B%E9%83%A8%E6%9B%B2%E2%80%9D%E4%B9%8B%E4%B8%80--%E5%AE%89%E8%A3%85ArchLinux%E6%95%99%E7%A8%8B%EF%BC%88UEFI%EF%BC%89/index.html">
+<meta property="og:site_name" content="熊贰de窝">
+<meta property="og:description" content="一、联网局域网 1dhcpcd   WIFI 1wifi-menu  二、ping网1ping www.baidu.com	#ping完按 ctrl+c 取消   题外话远程连接安装（真机安装可以忽略这个步骤）  开启ssh 1systemctl start ssh  查看IP地址 1ip a  在另外的电脑上连接 123用户名：root密码：上面设置的端口：22  三、更新系统时间1timeda">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://file.moetu.org/images/2020/02/15/16d356579c9b43215.png">
+<meta property="og:image" content="https://file.moetu.org/images/2020/02/15/214a9d9973071aad9.png">
+<meta property="og:image" content="https://file.moetu.org/images/2020/02/15/493866a96391feeef.png">
+<meta property="og:image" content="https://file.moetu.org/images/2020/02/15/4.1d590766a1856c042.png">
+<meta property="og:image" content="https://file.moetu.org/images/2020/02/15/4.29182557b88ae762e.png">
+<meta property="og:image" content="https://file.moetu.org/images/2020/02/15/51e7a33f55bf8a00b.png">
+<meta property="og:image" content="https://file.moetu.org/images/2020/02/15/5.1b9683d6ca4eec32d.png">
+<meta property="og:image" content="https://file.moetu.org/images/2020/02/15/696a499f905a78c10.png">
+<meta property="og:image" content="https://file.moetu.org/images/2020/02/15/7b5696da0cb018360.png">
+<meta property="og:image" content="https://file.moetu.org/images/2020/02/15/7.15dd576982cf37a7a.png">
+<meta property="og:image" content="https://file.moetu.org/images/2020/02/15/92a4ae9ec64dbf699.png">
+<meta property="og:image" content="https://file.moetu.org/images/2020/02/15/129265b23f933f2b48.png">
+<meta property="og:image" content="https://file.moetu.org/images/2020/02/15/12.165fab7689a1edaa2.png">
+<meta property="og:image" content="https://file.moetu.org/images/2020/02/15/155414e08654ebebe9.png">
+<meta property="og:image" content="https://file.moetu.org/images/2020/02/15/15.1aea9110f818d754e.png">
+<meta property="og:image" content="https://file.moetu.org/images/2020/02/15/15.243828a61ddcdfb3f.png">
+<meta property="og:image" content="https://file.moetu.org/images/2020/02/15/162f50659ec8a98ad7.png">
+<meta property="article:published_time" content="2020-06-26T03:41:31.000Z">
+<meta property="article:modified_time" content="2022-09-09T02:23:18.450Z">
+<meta property="article:author" content="xiongaox">
+<meta property="article:tag" content="其他技巧">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://file.moetu.org/images/2020/02/15/16d356579c9b43215.png">
+    
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/justifiedGallery/justifiedGallery.min.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+
+
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1662703864452">
+    
+    <link rel="stylesheet" href="/css/style.css?v=1662703864452">
+
+    
+        
+            <link rel="stylesheet" href="/custom.css?v=1662703864452">
+        
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="mdui-drawer-body-left">
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://file.moetu.org/images/2022/08/26/default00ee504f88ce61dd.png)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="xiongaox" class="mdui-btn mdui-btn-icon"><img src="https://file.moetu.org/images/2022/08/26/avater5d6654dba6f7f88d.png" alt="xiongaox"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="xiongaox">
+            <img src="https://file.moetu.org/images/2022/08/26/avater5d6654dba6f7f88d.png" alt="xiongaox" alt="xiongaox">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>11</div>
+        <div><span>标签</span>9</div>
+        <div><span>分类</span>0</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博主">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博主
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+        
+        
+        <div class="nexmoe-widget-wrap">
+	<div class="nexmoe-widget nexmoe-social">
+		<a
+			class="mdui-ripple"
+			href="https://xiongaox.zcool.com.cn/"
+			target="_blank"
+			mdui-tooltip="{content: '站酷'}"
+			style="
+				color: rgb(247, 132, 34);
+				background-color: rgba(247, 132, 34, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-zhanku"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://space.bilibili.com/20238211"
+			target="_blank"
+			mdui-tooltip="{content: '哔哩哔哩'}"
+			style="
+				color: rgb(231, 106, 141);
+				background-color: rgba(231, 106, 141, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-bilibili"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://github.com/nexmoe/"
+			target="_blank"
+			mdui-tooltip="{content: 'GitHub'}"
+			style="
+				color: rgb(25, 23, 23);
+				background-color: rgba(25, 23, 23, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-github"
+			></i> </a
+		>
+	</div>
+</div>
+
+    
+        
+        
+
+    
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Blender/" style="font-size: 10px;">Blender</a> <a href="/tags/Chrome%E6%8F%92%E4%BB%B6/" style="font-size: 15px;">Chrome插件</a> <a href="/tags/Figma%E5%BF%83%E5%BE%97/" style="font-size: 10px;">Figma心得</a> <a href="/tags/Figma%E7%9B%B8%E5%85%B3/" style="font-size: 15px;">Figma相关</a> <a href="/tags/%E4%BD%9C%E5%93%81%E9%9B%86/" style="font-size: 10px;">作品集</a> <a href="/tags/%E5%85%B6%E4%BB%96%E6%8A%80%E5%B7%A7/" style="font-size: 20px;">其他技巧</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%BF%83%E5%BE%97/" style="font-size: 10px;">设计心得</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">设计系统</a> <a href="/tags/%E9%98%85%E8%AF%BB%E8%B5%84%E6%BA%90/" style="font-size: 10px;">阅读资源</a>
+    </div>
+    
+      <script>
+        var maxTagcloud = parseInt(17);
+        var tags_length = parseInt(9);
+        var tags_arr = [];
+        for(var i = 0; i < tags_length; i++){
+          tags_arr.push(i);
+        }
+        tags_arr.sort(function (l, r) {
+          return Math.random() > 0.5 ? -1 : 1;
+        });
+        tags_arr = tags_arr.slice(0, maxTagcloud < tags_length ? tags_length - maxTagcloud : 0);
+        for(var tag_i = 0; tag_i < tags_arr.length; tag_i++){
+          document.getElementById("randomtagcloud").children[tags_arr[tag_i]].style.display = 'none';
+        }
+      </script>
+    
+  </div>
+
+    
+        
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+
+    
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">最新文章</h3>
+    <div class="nexmoe-widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/09/Blender%E5%BF%AB%E6%8D%B7%E9%94%AE-Mac/">Blender快捷键(Mac)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/05/%E3%80%90Chrome%E6%8F%92%E4%BB%B6%E3%80%91%E2%80%94%E2%80%94%20Figma%20CN/">【Chrome插件】—— Figma CN</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/05/%E3%80%90Figma%E6%8F%92%E4%BB%B6%E3%80%91%E2%80%94%E2%80%94%20Figma%20EX/">【Chrome插件】—— Figma EX</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/05/%E4%BC%98%E7%A7%80%E8%AE%BE%E8%AE%A1%E7%B3%BB%E7%BB%9F%E6%B1%87%E6%80%BB/">优秀设计系统汇总</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/25/%E6%90%AC%E8%BF%90-Figma%E5%BF%AB%E6%8D%B7%E9%94%AE/">【搬运】Figma快捷键</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+        
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2022 xiongaox
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: NaN%;"> 
+              <img src="https://file.moetu.org/images/2022/09/09/archlinux65203301a3c756b6.jpg" alt="ArchLinux“四部曲”之一--安装ArchLinux教程（UEFI）" loading="lazy">
+              <h1>ArchLinux“四部曲”之一--安装ArchLinux教程（UEFI）</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年06月26日</a>
+</div>
+      
+
+      <h2 id="一、联网"><a href="#一、联网" class="headerlink" title="一、联网"></a>一、联网</h2><p>局域网</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">dhcpcd</span><br></code></pre></td></tr></table></figure>
+
+<p><img data-fancybox="gallery" src="https://file.moetu.org/images/2020/02/15/16d356579c9b43215.png" alt="16d356579c9b43215.png" data-caption="16d356579c9b43215.png" loading="lazy"></p>
+<p>WIFI</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">wifi-<span class="hljs-selector-tag">menu</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="二、ping网"><a href="#二、ping网" class="headerlink" title="二、ping网"></a>二、ping网</h2><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autoit"><span class="hljs-built_in">ping</span> www.baidu.com	<span class="hljs-meta">#ping完按 ctrl+c 取消</span><br></code></pre></td></tr></table></figure>
+
+<p><img data-fancybox="gallery" src="https://file.moetu.org/images/2020/02/15/214a9d9973071aad9.png" alt="214a9d9973071aad9.png" data-caption="214a9d9973071aad9.png" loading="lazy"></p>
+<h3 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h3><p>远程连接安装（<strong>真机安装可以忽略这个步骤</strong>）</p>
+<blockquote>
+<p>开启ssh</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">systemctl start ssh<br></code></pre></td></tr></table></figure>
+
+<p>查看IP地址</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">ip a<br></code></pre></td></tr></table></figure>
+
+<p>在另外的电脑上连接</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xquery">用户名<span class="hljs-built_in">：root</span><br>密码：上面设置的<br>端口：<span class="hljs-number">22</span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="三、更新系统时间"><a href="#三、更新系统时间" class="headerlink" title="三、更新系统时间"></a>三、更新系统时间</h2><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-string">timedatectl</span> <span class="hljs-built_in">set-ntp</span> <span class="hljs-string">true</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="四、创建硬盘分区"><a href="#四、创建硬盘分区" class="headerlink" title="四、创建硬盘分区"></a>四、创建硬盘分区</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">fdisk -l	<span class="hljs-comment">#列出电脑的磁盘个数</span><br>fdisk <span class="hljs-regexp">/dev/</span>sda	<span class="hljs-comment">#选择哪个盘进行下一步，我的是sda为我本次要装系统的盘，所以这里选择的是sda，每个人不同，请仔细查看，更改为自己的序号 </span><br></code></pre></td></tr></table></figure>
+
+<p><img data-fancybox="gallery" src="https://file.moetu.org/images/2020/02/15/493866a96391feeef.png" alt="493866a96391feeef.png" data-caption="493866a96391feeef.png" loading="lazy"></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">g</span>   <span class="hljs-comment">#将硬盘格式设置为GUID</span><br>n   <span class="hljs-comment">#新建分区</span><br>+<span class="hljs-number">512M</span>   <span class="hljs-comment">#设置EFI分区大小，可自行更改  </span><br>n<br>+<span class="hljs-number">35G</span>    <span class="hljs-comment">#设置系统盘大小，可自行更改  </span><br>n<br>+<span class="hljs-number">2G</span> <span class="hljs-comment">#设置交换空间大小，可以自行更改  </span><br>n   <span class="hljs-comment">#剩下的设置为用户盘</span><br></code></pre></td></tr></table></figure>
+
+<p><img data-fancybox="gallery" src="https://file.moetu.org/images/2020/02/15/4.1d590766a1856c042.png" alt="4.1d590766a1856c042.png" data-caption="4.1d590766a1856c042.png" loading="lazy"></p>
+<p>现在分区已经全部创建完成了，但是所有的分区的格式都是为<code>Linux filesystem</code>类型，我们要修改EFI分区和交换分区的类型</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs markdown">t   #更改分区格式 <br>1   #需要更改的分区号<br>1   #更改为EFI System  <br>t<br>3<br>19  #更改为Linux swap<br>p	#预览<br>w   #保存退出<br></code></pre></td></tr></table></figure>
+
+<p><img data-fancybox="gallery" src="https://file.moetu.org/images/2020/02/15/4.29182557b88ae762e.png" alt="4.29182557b88ae762e.png" data-caption="4.29182557b88ae762e.png" loading="lazy"></p>
+<h2 id="五、格式化挂载点"><a href="#五、格式化挂载点" class="headerlink" title="五、格式化挂载点"></a>五、格式化挂载点</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs markdown">mkfs.fat -F32 /dev/sda1	#FAT32格式化命令，sda1更改为自己的磁盘号<br>mkfs.ext4 /dev/sda2	#EXT4格式化命令，sdc2、sda4更改为自己的磁盘号<br>mkfs.ext4 /dev/sda4<br><br>mkswap /dev/sda3    #设置交换空间，sda3更改为自己的磁盘号<br>swapon /dev/sda3    #打开交换空间，sda3更改为自己的磁盘号<br></code></pre></td></tr></table></figure>
+
+<p><img data-fancybox="gallery" src="https://file.moetu.org/images/2020/02/15/51e7a33f55bf8a00b.png" alt="51e7a33f55bf8a00b.png" data-caption="51e7a33f55bf8a00b.png" loading="lazy"></p>
+<p><img data-fancybox="gallery" src="https://file.moetu.org/images/2020/02/15/5.1b9683d6ca4eec32d.png" alt="5.1b9683d6ca4eec32d.png" data-caption="5.1b9683d6ca4eec32d.png" loading="lazy"></p>
+<h2 id="六、挂载分区"><a href="#六、挂载分区" class="headerlink" title="六、挂载分区"></a>六、挂载分区</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown">mount /dev/sda2 /mnt #把sda2挂载到/mnt目录下，sda2更改为自己的磁盘号<br>mkdir /mnt/boot #新建boot目录<br>mkdir /mnt/home #新建home目录<br>mount /dev/sda1 /mnt/boot   #把sdc1挂载到/mnt/boot目录下，sda1更改为自己的磁盘号<br>mount /dev/sda4 /mnt/home   #把sdc4挂载到/mnt/home目录下，sda4更改为自己的磁盘号<br></code></pre></td></tr></table></figure>
+
+<p><img data-fancybox="gallery" src="https://file.moetu.org/images/2020/02/15/696a499f905a78c10.png" alt="696a499f905a78c10.png" data-caption="696a499f905a78c10.png" loading="lazy"></p>
+<h2 id="七、更换镜像源"><a href="#七、更换镜像源" class="headerlink" title="七、更换镜像源"></a>七、更换镜像源</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section">#更换为清华的源，这样下面下载东西的时候，会快很多</span><br>nano /etc/pacman.d/mirrorlist   #打开mirrorlist文件<br></code></pre></td></tr></table></figure>
+
+<p>按住 <code>ctrl+w</code> 输入 <code>tsinghua</code> 回车<br>看到光标已经跳到了<code>tsinghua</code>字段下<br>按住 <code>ctrl+k</code> 剪切字段<br>光标移到 <code>## Australia</code> 上方<br>按住 <code>ctrl+u</code> 粘贴字段<br>按住 <code>ctrl+x</code> 保存更改 输入 <code>Y</code> 确认更改</p>
+<p><img data-fancybox="gallery" src="https://file.moetu.org/images/2020/02/15/7b5696da0cb018360.png" alt="7b5696da0cb018360.png" data-caption="7b5696da0cb018360.png" loading="lazy"></p>
+<p><img data-fancybox="gallery" src="https://file.moetu.org/images/2020/02/15/7.15dd576982cf37a7a.png" alt="7.15dd576982cf37a7a.png" data-caption="7.15dd576982cf37a7a.png" loading="lazy"></p>
+<h2 id="八、拉取基本安装件"><a href="#八、拉取基本安装件" class="headerlink" title="八、拉取基本安装件"></a>八、拉取基本安装件</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown">pacstrap /mnt base base-devel linux linux-firmware  <br><span class="hljs-section">#如果没有添加linux linux-firmware字段，安装完成后，重启进入的不是系统，而是进入到grub界面</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="九、生成挂载文件"><a href="#九、生成挂载文件" class="headerlink" title="九、生成挂载文件"></a>九、生成挂载文件</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">genfstab -U <span class="hljs-regexp">/mnt &gt;&gt; /m</span>nt<span class="hljs-regexp">/etc/</span>fstab  <span class="hljs-comment">#把挂载模式保存成配置文件放到操作系统里，这样每次开机就会自动识别挂载</span><br>cat <span class="hljs-regexp">/mnt/</span>etc/fstab <span class="hljs-comment">#查看fstab文件</span><br></code></pre></td></tr></table></figure>
+
+<p><img data-fancybox="gallery" src="https://file.moetu.org/images/2020/02/15/92a4ae9ec64dbf699.png" alt="92a4ae9ec64dbf699.png" data-caption="92a4ae9ec64dbf699.png" loading="lazy"></p>
+<h2 id="十、根目录切硬盘"><a href="#十、根目录切硬盘" class="headerlink" title="十、根目录切硬盘"></a>十、根目录切硬盘</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">arch-chroot /mnt    <span class="hljs-comment">#进入到硬盘系统</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="十一、调整时区软链接"><a href="#十一、调整时区软链接" class="headerlink" title="十一、调整时区软链接"></a>十一、调整时区软链接</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">ln -sf <span class="hljs-regexp">/usr/</span>share<span class="hljs-regexp">/zoneinfo/</span>Asia<span class="hljs-regexp">/Shanghai /</span>etc/localtime<br>hwclock --systohc<br></code></pre></td></tr></table></figure>
+
+<h2 id="十二、修改本地语言"><a href="#十二、修改本地语言" class="headerlink" title="十二、修改本地语言"></a>十二、修改本地语言</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown">pacman -S nano<br>nano /etc/locale.gen<br></code></pre></td></tr></table></figure>
+
+<p>按住 <code>ctrl+w</code> 输入 <code>zh_CN</code> 回车<br>看到光标已经跳到了<code>zh_CN</code> 字段下<br>找到 <code>zh_CN.UTF-8 UTF-8</code><br>把前面的 <code>#</code> 注释去掉<br>按住 <code>ctrl+w</code> 输入 <code>en_US</code> 回车<br>看到光标已经跳到了<code>en_US</code> 字段下<br>找到 <code>en_US.UTF-8 UTF-8</code><br>把前面的 <code>#</code> 注释去掉<br>按住 <code>ctrl+x</code> 保存更改 输入 <code>Y</code> 确认更改</p>
+<p><img data-fancybox="gallery" src="https://file.moetu.org/images/2020/02/15/129265b23f933f2b48.png" alt="129265b23f933f2b48.png" data-caption="129265b23f933f2b48.png" loading="lazy"></p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">locale-gen <span class="hljs-meta">#将语言更改本地化</span><br></code></pre></td></tr></table></figure>
+
+<p><img data-fancybox="gallery" src="https://file.moetu.org/images/2020/02/15/12.165fab7689a1edaa2.png" alt="12.165fab7689a1edaa2.png" data-caption="12.165fab7689a1edaa2.png" loading="lazy"></p>
+<h2 id="十三、创建变量"><a href="#十三、创建变量" class="headerlink" title="十三、创建变量"></a>十三、创建变量</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">echo <span class="hljs-string">&quot;LANG=zh_CN.UTF-8&quot;</span> &gt;&gt; <span class="hljs-regexp">/etc/</span>locale.conf <span class="hljs-comment">#给系统创建一个语言变量</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="十四、设置密码"><a href="#十四、设置密码" class="headerlink" title="十四、设置密码"></a>十四、设置密码</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">passwd</span>  <span class="hljs-comment">#设置密码</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="十五、安装相关包、引导"><a href="#十五、安装相关包、引导" class="headerlink" title="十五、安装相关包、引导"></a>十五、安装相关包、引导</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs markdown">pacman -S intel-ucode #安装微码引导员 -&gt; intel平台<br>pacman -S amd-ucode #安装微码引导员 -&gt; amd平台<br><span class="hljs-code">    </span><br><span class="hljs-code">pacman -S iw wpa_supplicant dialog net-tools networkmanager</span><br><span class="hljs-code">pacman -S dhcpcd     #安装网络相关的包，这个包不安装，重启之后就会没有网络</span><br><span class="hljs-code">systemctl enable dhcpcd #将dhcpcd设置为开机启动</span><br><span class="hljs-code">pacman -S grub efibootmgr   #安装grub引导工具</span><br><span class="hljs-code">pacman -S os-prober #如果是双系统的话，就需要执行这个命令，单系统则不需要</span><br><span class="hljs-code">grub-install --target=x86_64-efi --efi-directory=/boot --bootloader=Arch    #生成grub启动配置</span><br><span class="hljs-code">grub-mkconfig -o /boot/grub/grub.cfg    #设置grub配置</span><br></code></pre></td></tr></table></figure>
+
+<p>如果你出现了以下错误，就证明你的系统是<code>BIOS</code>启动的，而我这个教程是<code>UEFI</code>启动的</p>
+<p><img data-fancybox="gallery" src="https://file.moetu.org/images/2020/02/15/155414e08654ebebe9.png" alt="155414e08654ebebe9.png" data-caption="155414e08654ebebe9.png" loading="lazy"></p>
+<p>下面这两个才是正确的输出</p>
+<p><img data-fancybox="gallery" src="https://file.moetu.org/images/2020/02/15/15.1aea9110f818d754e.png" alt="15.1aea9110f818d754e.png" data-caption="15.1aea9110f818d754e.png" loading="lazy"></p>
+<p><img data-fancybox="gallery" src="https://file.moetu.org/images/2020/02/15/15.243828a61ddcdfb3f.png" alt="15.243828a61ddcdfb3f.png" data-caption="15.243828a61ddcdfb3f.png" loading="lazy"></p>
+<h2 id="十六、初步安装完成"><a href="#十六、初步安装完成" class="headerlink" title="十六、初步安装完成"></a>十六、初步安装完成</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-keyword">exit</span> <span class="hljs-comment">#退出，回到启动盘系统</span><br>umount <span class="hljs-regexp">/mnt/</span>home    <span class="hljs-comment">#卸载挂载目录</span><br>umount <span class="hljs-regexp">/mnt/</span>boot<br>umount /mnt<br>reboot  <span class="hljs-comment">#重启</span><br></code></pre></td></tr></table></figure>
+
+<p><img data-fancybox="gallery" src="https://file.moetu.org/images/2020/02/15/162f50659ec8a98ad7.png" alt="162f50659ec8a98ad7.png" data-caption="162f50659ec8a98ad7.png" loading="lazy"></p>
+<p>如果你是需要用到远程连接的，就要查看下面的命令，开启ssh服务<br>Archlinux开启ssh服务命令：</p>
+<figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs nsis"><span class="hljs-params">system</span>ctl enable sshd.service  开机启动<br><span class="hljs-params">system</span>ctl start sshd.service     立即启动<br><span class="hljs-params">system</span>ctl restart sshd.service   立即重启<br></code></pre></td></tr></table></figure>
+
+<p>重启之后，就会进入系统，让你输入账户密码登录。至此第一步完成了</p>
+
+      
+  </article>
+
+  
+      
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%85%B6%E4%BB%96%E6%8A%80%E5%B7%A7/" rel="tag">其他技巧</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                        
+                          
+                          
+                              <button class="mdui-fab catalog" style="overflow:unset;">
+                                  <i class="nexmoefont icon-i-catalog"></i>
+                                  <div class="nexmoe-toc">
+                                      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E8%81%94%E7%BD%91"><span class="toc-number">1.</span> <span class="toc-text">一、联网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81ping%E7%BD%91"><span class="toc-number">2.</span> <span class="toc-text">二、ping网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E5%A4%96%E8%AF%9D"><span class="toc-number">2.1.</span> <span class="toc-text">题外话</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4"><span class="toc-number">3.</span> <span class="toc-text">三、更新系统时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%88%9B%E5%BB%BA%E7%A1%AC%E7%9B%98%E5%88%86%E5%8C%BA"><span class="toc-number">4.</span> <span class="toc-text">四、创建硬盘分区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%8C%82%E8%BD%BD%E7%82%B9"><span class="toc-number">5.</span> <span class="toc-text">五、格式化挂载点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%8C%82%E8%BD%BD%E5%88%86%E5%8C%BA"><span class="toc-number">6.</span> <span class="toc-text">六、挂载分区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E6%9B%B4%E6%8D%A2%E9%95%9C%E5%83%8F%E6%BA%90"><span class="toc-number">7.</span> <span class="toc-text">七、更换镜像源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E6%8B%89%E5%8F%96%E5%9F%BA%E6%9C%AC%E5%AE%89%E8%A3%85%E4%BB%B6"><span class="toc-number">8.</span> <span class="toc-text">八、拉取基本安装件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E7%94%9F%E6%88%90%E6%8C%82%E8%BD%BD%E6%96%87%E4%BB%B6"><span class="toc-number">9.</span> <span class="toc-text">九、生成挂载文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E6%A0%B9%E7%9B%AE%E5%BD%95%E5%88%87%E7%A1%AC%E7%9B%98"><span class="toc-number">10.</span> <span class="toc-text">十、根目录切硬盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E8%B0%83%E6%95%B4%E6%97%B6%E5%8C%BA%E8%BD%AF%E9%93%BE%E6%8E%A5"><span class="toc-number">11.</span> <span class="toc-text">十一、调整时区软链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0%E8%AF%AD%E8%A8%80"><span class="toc-number">12.</span> <span class="toc-text">十二、修改本地语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%89%E3%80%81%E5%88%9B%E5%BB%BA%E5%8F%98%E9%87%8F"><span class="toc-number">13.</span> <span class="toc-text">十三、创建变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E5%9B%9B%E3%80%81%E8%AE%BE%E7%BD%AE%E5%AF%86%E7%A0%81"><span class="toc-number">14.</span> <span class="toc-text">十四、设置密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%BA%94%E3%80%81%E5%AE%89%E8%A3%85%E7%9B%B8%E5%85%B3%E5%8C%85%E3%80%81%E5%BC%95%E5%AF%BC"><span class="toc-number">15.</span> <span class="toc-text">十五、安装相关包、引导</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E5%85%AD%E3%80%81%E5%88%9D%E6%AD%A5%E5%AE%89%E8%A3%85%E5%AE%8C%E6%88%90"><span class="toc-number">16.</span> <span class="toc-text">十六、初步安装完成</span></a></li></ol>
+                                  </div>
+                              </button>
+                          
+                          
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="Back To Top" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-search-space">
+	<div class="search-container">
+		<div class="search-header">
+			<div class="search-input-container">
+				<input
+					class="search-input"
+					type="text"
+					placeholder="搜索"
+					oninput="sinput();"
+				/>
+			</div>
+			<a class="search-close" onclick="sclose();">×</a>
+		</div>
+		<div class="search-body"></div>
+	</div>
+</div>
+
+    
+<script src="/lib/mdui_043tiny/mdui.js"></script>
+<script src="/lib/jquery.min.js"></script>
+<script src="/lib/justifiedGallery/jquery.justifiedGallery.min.js"></script>
+<script src="/lib/fancybox/fancybox.umd.js"></script>
+
+
+ 
+
+<script async src="/js/app.js?v=1662703864454"></script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2058306854838448" crossorigin="anonymous"></script>
+
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+</body>
+
+</html>

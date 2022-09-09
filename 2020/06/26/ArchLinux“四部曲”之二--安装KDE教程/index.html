@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>ArchLinux“四部曲”之二--安装KDE教程 - 熊贰de窝</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="重启之后，就会进入系统，让你输入账户密码登录，但是此时的ArchLinux是没有图形化界面的，所以我们要给它装一个图形化的界面，本次教程选择的是KDE这个桌面环境   十七、联网&amp;ping1ping www.babidu.com  十八、安装X系统123pacman -S xorg	#一路回车#如果使用NVIDIA闭源驱动，输入以下命令,如果不使用，则不需要pacman -S xorg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ArchLinux“四部曲”之二--安装KDE教程">
+<meta property="og:url" content="https://xiongaox.github.io/2020/06/26/ArchLinux%E2%80%9C%E5%9B%9B%E9%83%A8%E6%9B%B2%E2%80%9D%E4%B9%8B%E4%BA%8C--%E5%AE%89%E8%A3%85KDE%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="熊贰de窝">
+<meta property="og:description" content="重启之后，就会进入系统，让你输入账户密码登录，但是此时的ArchLinux是没有图形化界面的，所以我们要给它装一个图形化的界面，本次教程选择的是KDE这个桌面环境   十七、联网&amp;ping1ping www.babidu.com  十八、安装X系统123pacman -S xorg	#一路回车#如果使用NVIDIA闭源驱动，输入以下命令,如果不使用，则不需要pacman -S xorg">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://file.moetu.org/images/2020/02/15/17e3e9513dc8c7ca4a.png">
+<meta property="og:image" content="https://file.moetu.org/images/2020/02/15/231a65b0d127f5f068.png">
+<meta property="og:image" content="https://file.moetu.org/images/2020/02/15/2436877e95b6578d42.png">
+<meta property="og:image" content="https://file.moetu.org/images/2020/02/15/25b0167bdd173dd3d0.png">
+<meta property="article:published_time" content="2020-06-26T05:41:31.000Z">
+<meta property="article:modified_time" content="2022-09-09T02:23:31.389Z">
+<meta property="article:author" content="xiongaox">
+<meta property="article:tag" content="其他技巧">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://file.moetu.org/images/2020/02/15/17e3e9513dc8c7ca4a.png">
+    
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/justifiedGallery/justifiedGallery.min.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+
+
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1662703864451">
+    
+    <link rel="stylesheet" href="/css/style.css?v=1662703864451">
+
+    
+        
+            <link rel="stylesheet" href="/custom.css?v=1662703864451">
+        
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="mdui-drawer-body-left">
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" style="background-image: url(https://file.moetu.org/images/2022/08/26/default00ee504f88ce61dd.png)"></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="xiongaox" class="mdui-btn mdui-btn-icon"><img src="https://file.moetu.org/images/2022/08/26/avater5d6654dba6f7f88d.png" alt="xiongaox"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="xiongaox">
+            <img src="https://file.moetu.org/images/2022/08/26/avater5d6654dba6f7f88d.png" alt="xiongaox" alt="xiongaox">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>11</div>
+        <div><span>标签</span>9</div>
+        <div><span>分类</span>0</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博主">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博主
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+    
+        
+        
+        <div class="nexmoe-widget-wrap">
+	<div class="nexmoe-widget nexmoe-social">
+		<a
+			class="mdui-ripple"
+			href="https://xiongaox.zcool.com.cn/"
+			target="_blank"
+			mdui-tooltip="{content: '站酷'}"
+			style="
+				color: rgb(247, 132, 34);
+				background-color: rgba(247, 132, 34, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-zhanku"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://space.bilibili.com/20238211"
+			target="_blank"
+			mdui-tooltip="{content: '哔哩哔哩'}"
+			style="
+				color: rgb(231, 106, 141);
+				background-color: rgba(231, 106, 141, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-bilibili"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://github.com/nexmoe/"
+			target="_blank"
+			mdui-tooltip="{content: 'GitHub'}"
+			style="
+				color: rgb(25, 23, 23);
+				background-color: rgba(25, 23, 23, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-github"
+			></i> </a
+		>
+	</div>
+</div>
+
+    
+        
+        
+
+    
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Blender/" style="font-size: 10px;">Blender</a> <a href="/tags/Chrome%E6%8F%92%E4%BB%B6/" style="font-size: 15px;">Chrome插件</a> <a href="/tags/Figma%E5%BF%83%E5%BE%97/" style="font-size: 10px;">Figma心得</a> <a href="/tags/Figma%E7%9B%B8%E5%85%B3/" style="font-size: 15px;">Figma相关</a> <a href="/tags/%E4%BD%9C%E5%93%81%E9%9B%86/" style="font-size: 10px;">作品集</a> <a href="/tags/%E5%85%B6%E4%BB%96%E6%8A%80%E5%B7%A7/" style="font-size: 20px;">其他技巧</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%BF%83%E5%BE%97/" style="font-size: 10px;">设计心得</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">设计系统</a> <a href="/tags/%E9%98%85%E8%AF%BB%E8%B5%84%E6%BA%90/" style="font-size: 10px;">阅读资源</a>
+    </div>
+    
+      <script>
+        var maxTagcloud = parseInt(17);
+        var tags_length = parseInt(9);
+        var tags_arr = [];
+        for(var i = 0; i < tags_length; i++){
+          tags_arr.push(i);
+        }
+        tags_arr.sort(function (l, r) {
+          return Math.random() > 0.5 ? -1 : 1;
+        });
+        tags_arr = tags_arr.slice(0, maxTagcloud < tags_length ? tags_length - maxTagcloud : 0);
+        for(var tag_i = 0; tag_i < tags_arr.length; tag_i++){
+          document.getElementById("randomtagcloud").children[tags_arr[tag_i]].style.display = 'none';
+        }
+      </script>
+    
+  </div>
+
+    
+        
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+
+    
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">最新文章</h3>
+    <div class="nexmoe-widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/09/09/Blender%E5%BF%AB%E6%8D%B7%E9%94%AE-Mac/">Blender快捷键(Mac)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/05/%E3%80%90Chrome%E6%8F%92%E4%BB%B6%E3%80%91%E2%80%94%E2%80%94%20Figma%20CN/">【Chrome插件】—— Figma CN</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/05/%E3%80%90Figma%E6%8F%92%E4%BB%B6%E3%80%91%E2%80%94%E2%80%94%20Figma%20EX/">【Chrome插件】—— Figma EX</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/05/%E4%BC%98%E7%A7%80%E8%AE%BE%E8%AE%A1%E7%B3%BB%E7%BB%9F%E6%B1%87%E6%80%BB/">优秀设计系统汇总</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/25/%E6%90%AC%E8%BF%90-Figma%E5%BF%AB%E6%8D%B7%E9%94%AE/">【搬运】Figma快捷键</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+        
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2022 xiongaox
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+            <div class="nexmoe-post">
+  <article>
+      
+          <div class="nexmoe-post-cover" style="padding-bottom: NaN%;"> 
+              <img src="https://file.moetu.org/images/2022/09/09/archlinux65203301a3c756b6.jpg" alt="ArchLinux“四部曲”之二--安装KDE教程" loading="lazy">
+              <h1>ArchLinux“四部曲”之二--安装KDE教程</h1>
+          </div>
+      
+      
+      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年06月26日</a>
+</div>
+      
+
+      <blockquote>
+<p>重启之后，就会进入系统，让你输入账户密码登录，但是此时的<code>ArchLinux</code>是没有图形化界面的，所以我们要给它装一个图形化的界面，本次教程选择的是<code>KDE</code>这个桌面环境</p>
+</blockquote>
+<p><img data-fancybox="gallery" src="https://file.moetu.org/images/2020/02/15/17e3e9513dc8c7ca4a.png" alt="17e3e9513dc8c7ca4a.png" data-caption="17e3e9513dc8c7ca4a.png" loading="lazy"></p>
+<h2 id="十七、联网-amp-ping"><a href="#十七、联网-amp-ping" class="headerlink" title="十七、联网&amp;ping"></a>十七、联网&amp;ping</h2><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autoit"><span class="hljs-built_in">ping</span> www.babidu.com<br></code></pre></td></tr></table></figure>
+
+<h2 id="十八、安装X系统"><a href="#十八、安装X系统" class="headerlink" title="十八、安装X系统"></a>十八、安装X系统</h2><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">pacman -S <span class="hljs-keyword">xorg	</span><span class="hljs-comment">#一路回车</span><br><span class="hljs-comment">#如果使用NVIDIA闭源驱动，输入以下命令,如果不使用，则不需要</span><br>pacman -S <span class="hljs-keyword">xorg </span><span class="hljs-keyword">xorg-xrandr</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="十九、触摸板驱动（如果有）"><a href="#十九、触摸板驱动（如果有）" class="headerlink" title="十九、触摸板驱动（如果有）"></a>十九、触摸板驱动（如果有）</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">pacman -S xf86-<span class="hljs-selector-tag">input</span>-synaptics<br></code></pre></td></tr></table></figure>
+
+<h2 id="二十、安装中文字体（Dejavu、文泉驿体）"><a href="#二十、安装中文字体（Dejavu、文泉驿体）" class="headerlink" title="二十、安装中文字体（Dejavu、文泉驿体）"></a>二十、安装中文字体（Dejavu、文泉驿体）</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">pacman -S ttf-dejavu wqy-microhei</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="二十一、添加用户名、密码"><a href="#二十一、添加用户名、密码" class="headerlink" title="二十一、添加用户名、密码"></a>二十一、添加用户名、密码</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown">useradd -m -g users -G wheel -s /bin/bash xiongaox<br><span class="hljs-section">#/bin/bash 可以换成自己想要的终端（如/bash/zsh）</span><br><span class="hljs-section">#xiongaox 换成自己的用户名</span><br><span class="hljs-code">    </span><br><span class="hljs-code">passwd xiongaox #xiongaox 换成自己的用户名</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="二十二、安装提权工具"><a href="#二十二、安装提权工具" class="headerlink" title="二十二、安装提权工具"></a>二十二、安装提权工具</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">pacman -S sudo</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="二十三、赋予普通用户权限"><a href="#二十三、赋予普通用户权限" class="headerlink" title="二十三、赋予普通用户权限"></a>二十三、赋予普通用户权限</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ada">cd /etc<br>nano sudoers #将 %wheel <span class="hljs-keyword">ALL</span> = (<span class="hljs-keyword">ALL</span>)<span class="hljs-keyword">ALL</span> 行的注释去掉<br></code></pre></td></tr></table></figure>
+
+<p><img data-fancybox="gallery" src="https://file.moetu.org/images/2020/02/15/231a65b0d127f5f068.png" alt="231a65b0d127f5f068.png" data-caption="231a65b0d127f5f068.png" loading="lazy"></p>
+<h2 id="二十四、安装KDE桌面、KDE桌面应用"><a href="#二十四、安装KDE桌面、KDE桌面应用" class="headerlink" title="二十四、安装KDE桌面、KDE桌面应用"></a>二十四、安装KDE桌面、KDE桌面应用</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">pacman</span> -S plasma kde-applications	<span class="hljs-comment">#一路回车</span><br></code></pre></td></tr></table></figure>
+
+<p>在下载过程中，发现网速特别慢，这里可以看到的提示是<code>python-3.8.1-4-x86_64.pkg...</code>在清华镜像站中没有，所以它会默认走国外的镜像站，因此网速才会这么慢，我们只需再添加一个镜像源即可，其实是上面我懒，只添加了一个的原因。</p>
+<p><img data-fancybox="gallery" src="https://file.moetu.org/images/2020/02/15/2436877e95b6578d42.png" alt="2436877e95b6578d42.png" data-caption="2436877e95b6578d42.png" loading="lazy"></p>
+<p><img data-fancybox="gallery" src="https://file.moetu.org/images/2020/02/15/25b0167bdd173dd3d0.png" alt="25b0167bdd173dd3d0.png" data-caption="25b0167bdd173dd3d0.png" loading="lazy"></p>
+<h2 id="二十五、安装用于x11和wayland视窗系统的显示管理器（图形登录界面）"><a href="#二十五、安装用于x11和wayland视窗系统的显示管理器（图形登录界面）" class="headerlink" title="二十五、安装用于x11和wayland视窗系统的显示管理器（图形登录界面）"></a>二十五、安装用于x11和wayland视窗系统的显示管理器（图形登录界面）</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">pacman -S sddm sddm-kcm</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="二十六、开启ssdm服务"><a href="#二十六、开启ssdm服务" class="headerlink" title="二十六、开启ssdm服务"></a>二十六、开启ssdm服务</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">systemctl <span class="hljs-built_in">enable</span> sddm<br></code></pre></td></tr></table></figure>
+
+<h2 id="二十七、安装networkmanager网络管理和相关网络工具"><a href="#二十七、安装networkmanager网络管理和相关网络工具" class="headerlink" title="二十七、安装networkmanager网络管理和相关网络工具"></a>二十七、安装networkmanager网络管理和相关网络工具</h2><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dos">pacman -S networkmanager <span class="hljs-built_in">net</span>-tools<br></code></pre></td></tr></table></figure>
+
+<h2 id="二十八、激活networkmanager、dhcpcd服务"><a href="#二十八、激活networkmanager、dhcpcd服务" class="headerlink" title="二十八、激活networkmanager、dhcpcd服务"></a>二十八、激活networkmanager、dhcpcd服务</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">systemctl <span class="hljs-built_in">enable</span> Networkmanager<br>systemctl <span class="hljs-built_in">enable</span> dhcpcd<br></code></pre></td></tr></table></figure>
+
+<h2 id="二十九、安装声音软件包"><a href="#二十九、安装声音软件包" class="headerlink" title="二十九、安装声音软件包"></a>二十九、安装声音软件包</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">pacman -S alsa-utils pulseaudio pulseaudio-alsa</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="三十、安装中文输入法"><a href="#三十、安装中文输入法" class="headerlink" title="三十、安装中文输入法"></a>三十、安装中文输入法</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">pacman -S fcitx fcitx-rime fcitx-im kcm-fcitx</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="三十一、激活fcitx、及桌面环境语言设定"><a href="#三十一、激活fcitx、及桌面环境语言设定" class="headerlink" title="三十一、激活fcitx、及桌面环境语言设定"></a>三十一、激活fcitx、及桌面环境语言设定</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs markdown">nano /home/xiongaox/.xprofile<br><span class="hljs-code">	xiongaox 是上面创建的用户名，记得替换成自己的</span><br><span class="hljs-code">#在.xprofile文档里输入以下命令</span><br><span class="hljs-code">	export LANG=zh_CN.UTF-8</span><br><span class="hljs-code">	export LC_ALL=zh_CN.UTF-8</span><br><span class="hljs-code">	export GTK_IM_MODULE=fcitx</span><br><span class="hljs-code">	export QT_IM_MODULE=fcitx</span><br><span class="hljs-code">	export XMODIFIERS=&quot;@im=fcitx&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>如果你使用的是没有显卡的机子，现在即可输入<code>reboot now</code>重启你的系统，进入到<code>kde</code>的桌面了,如果你想让显卡支持<code>linux</code>，继续看下去</p>
+<h2 id="三十二、编辑启动管理器的脚本"><a href="#三十二、编辑启动管理器的脚本" class="headerlink" title="三十二、编辑启动管理器的脚本"></a>三十二、编辑启动管理器的脚本</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown">nano /usr/share/sddm/scripts/Xsetup<br><span class="hljs-section">#在Xsetup输入以下命令</span><br><span class="hljs-code">	xrandr --setprovideroutsource modesetting NVIDIA-0</span><br><span class="hljs-code">	xrandr --auto</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="三十三、获取显卡PCI地址"><a href="#三十三、获取显卡PCI地址" class="headerlink" title="三十三、获取显卡PCI地址"></a>三十三、获取显卡PCI地址</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">lspci | grep -E &quot;VGA|3D&quot;<br></code></pre></td></tr></table></figure>
+
+<h2 id="三十四、编辑xorg-conf-确保xorg-xrandr软件包已经安装"><a href="#三十四、编辑xorg-conf-确保xorg-xrandr软件包已经安装" class="headerlink" title="三十四、编辑xorg.conf,确保xorg-xrandr软件包已经安装"></a>三十四、编辑xorg.conf,确保xorg-xrandr软件包已经安装</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs markdown">sudo nano /etc/X11/xorg.conf<br><span class="hljs-code">    </span><br><span class="hljs-code">#在xorag.conf输入以下命令</span><br><span class="hljs-code">	Section &quot;Module&quot;</span><br><span class="hljs-code">		Load &quot;modesetting&quot;</span><br><span class="hljs-code">	EndSection</span><br><span class="hljs-code">    </span><br><span class="hljs-code">	Section &quot;Device&quot;</span><br><span class="hljs-code">		ldentifier &quot;nvidia&quot;</span><br><span class="hljs-code">		Device &quot;nvidia&quot;</span><br><span class="hljs-code">		BusID &quot;&lt;BusID for NVIDIA device here&gt;&quot; </span><br><span class="hljs-code">		#&lt;BusID for NVIDIA device here&gt; 要更换到上面查询到的id,比如01:00.0 -&gt; 1:0:0</span><br><span class="hljs-code">		Option &quot;AllowEmptylnitialConfiguration&quot;</span><br><span class="hljs-code">	EndSection</span><br><span class="hljs-code">reboot now #重启进入你的GUI系统</span><br></code></pre></td></tr></table></figure>
+      
+  </article>
+
+  
+      
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%85%B6%E4%BB%96%E6%8A%80%E5%B7%A7/" rel="tag">其他技巧</a>
+    
+</div>
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+
+</div>
+            <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                        
+                          
+                          
+                              <button class="mdui-fab catalog" style="overflow:unset;">
+                                  <i class="nexmoefont icon-i-catalog"></i>
+                                  <div class="nexmoe-toc">
+                                      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%83%E3%80%81%E8%81%94%E7%BD%91-amp-ping"><span class="toc-number">1.</span> <span class="toc-text">十七、联网&amp;ping</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E5%85%AB%E3%80%81%E5%AE%89%E8%A3%85X%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.</span> <span class="toc-text">十八、安装X系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B9%9D%E3%80%81%E8%A7%A6%E6%91%B8%E6%9D%BF%E9%A9%B1%E5%8A%A8%EF%BC%88%E5%A6%82%E6%9E%9C%E6%9C%89%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">十九、触摸板驱动（如果有）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E3%80%81%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E5%AD%97%E4%BD%93%EF%BC%88Dejavu%E3%80%81%E6%96%87%E6%B3%89%E9%A9%BF%E4%BD%93%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">二十、安装中文字体（Dejavu、文泉驿体）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E4%B8%80%E3%80%81%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E5%90%8D%E3%80%81%E5%AF%86%E7%A0%81"><span class="toc-number">5.</span> <span class="toc-text">二十一、添加用户名、密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E4%BA%8C%E3%80%81%E5%AE%89%E8%A3%85%E6%8F%90%E6%9D%83%E5%B7%A5%E5%85%B7"><span class="toc-number">6.</span> <span class="toc-text">二十二、安装提权工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E4%B8%89%E3%80%81%E8%B5%8B%E4%BA%88%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90"><span class="toc-number">7.</span> <span class="toc-text">二十三、赋予普通用户权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E5%9B%9B%E3%80%81%E5%AE%89%E8%A3%85KDE%E6%A1%8C%E9%9D%A2%E3%80%81KDE%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8"><span class="toc-number">8.</span> <span class="toc-text">二十四、安装KDE桌面、KDE桌面应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E4%BA%94%E3%80%81%E5%AE%89%E8%A3%85%E7%94%A8%E4%BA%8Ex11%E5%92%8Cwayland%E8%A7%86%E7%AA%97%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%98%BE%E7%A4%BA%E7%AE%A1%E7%90%86%E5%99%A8%EF%BC%88%E5%9B%BE%E5%BD%A2%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A2%EF%BC%89"><span class="toc-number">9.</span> <span class="toc-text">二十五、安装用于x11和wayland视窗系统的显示管理器（图形登录界面）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E5%85%AD%E3%80%81%E5%BC%80%E5%90%AFssdm%E6%9C%8D%E5%8A%A1"><span class="toc-number">10.</span> <span class="toc-text">二十六、开启ssdm服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E4%B8%83%E3%80%81%E5%AE%89%E8%A3%85networkmanager%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E5%92%8C%E7%9B%B8%E5%85%B3%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7"><span class="toc-number">11.</span> <span class="toc-text">二十七、安装networkmanager网络管理和相关网络工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E5%85%AB%E3%80%81%E6%BF%80%E6%B4%BBnetworkmanager%E3%80%81dhcpcd%E6%9C%8D%E5%8A%A1"><span class="toc-number">12.</span> <span class="toc-text">二十八、激活networkmanager、dhcpcd服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8D%81%E4%B9%9D%E3%80%81%E5%AE%89%E8%A3%85%E5%A3%B0%E9%9F%B3%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="toc-number">13.</span> <span class="toc-text">二十九、安装声音软件包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%8D%81%E3%80%81%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95"><span class="toc-number">14.</span> <span class="toc-text">三十、安装中文输入法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%8D%81%E4%B8%80%E3%80%81%E6%BF%80%E6%B4%BBfcitx%E3%80%81%E5%8F%8A%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E8%AF%AD%E8%A8%80%E8%AE%BE%E5%AE%9A"><span class="toc-number">15.</span> <span class="toc-text">三十一、激活fcitx、及桌面环境语言设定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%8D%81%E4%BA%8C%E3%80%81%E7%BC%96%E8%BE%91%E5%90%AF%E5%8A%A8%E7%AE%A1%E7%90%86%E5%99%A8%E7%9A%84%E8%84%9A%E6%9C%AC"><span class="toc-number">16.</span> <span class="toc-text">三十二、编辑启动管理器的脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%8D%81%E4%B8%89%E3%80%81%E8%8E%B7%E5%8F%96%E6%98%BE%E5%8D%A1PCI%E5%9C%B0%E5%9D%80"><span class="toc-number">17.</span> <span class="toc-text">三十三、获取显卡PCI地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%8D%81%E5%9B%9B%E3%80%81%E7%BC%96%E8%BE%91xorg-conf-%E7%A1%AE%E4%BF%9Dxorg-xrandr%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%B7%B2%E7%BB%8F%E5%AE%89%E8%A3%85"><span class="toc-number">18.</span> <span class="toc-text">三十四、编辑xorg.conf,确保xorg-xrandr软件包已经安装</span></a></li></ol>
+                                  </div>
+                              </button>
+                          
+                          
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="Back To Top" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-search-space">
+	<div class="search-container">
+		<div class="search-header">
+			<div class="search-input-container">
+				<input
+					class="search-input"
+					type="text"
+					placeholder="搜索"
+					oninput="sinput();"
+				/>
+			</div>
+			<a class="search-close" onclick="sclose();">×</a>
+		</div>
+		<div class="search-body"></div>
+	</div>
+</div>
+
+    
+<script src="/lib/mdui_043tiny/mdui.js"></script>
+<script src="/lib/jquery.min.js"></script>
+<script src="/lib/justifiedGallery/jquery.justifiedGallery.min.js"></script>
+<script src="/lib/fancybox/fancybox.umd.js"></script>
+
+
+ 
+
+<script async src="/js/app.js?v=1662703864452"></script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2058306854838448" crossorigin="anonymous"></script>
+
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+</body>
+
+</html>
