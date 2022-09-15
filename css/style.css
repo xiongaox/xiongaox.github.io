@@ -1151,6 +1151,9 @@ body {
   #nexmoe-header .mdui-drawer {
     left: 0;
   }
+  .nexmoe-post .nexmoe-post-cover h1 {
+    font-size: 1.8em !important;
+  }
 }
 #nexmoe-content {
   position: relative;
