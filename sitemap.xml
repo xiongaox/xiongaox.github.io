@@ -185,13 +185,6 @@
   </url>
   
   <url>
-    <loc>https://xiongaox.github.io/tags/%E5%B9%B3%E9%9D%A2%E8%AE%BE%E8%AE%A1/</loc>
-    <lastmod>2022-09-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://xiongaox.github.io/tags/Chrome%E6%8F%92%E4%BB%B6/</loc>
     <lastmod>2022-09-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -200,6 +193,13 @@
   
   <url>
     <loc>https://xiongaox.github.io/tags/Figma%E7%9B%B8%E5%85%B3/</loc>
+    <lastmod>2022-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiongaox.github.io/tags/%E5%B9%B3%E9%9D%A2%E8%AE%BE%E8%AE%A1/</loc>
     <lastmod>2022-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
