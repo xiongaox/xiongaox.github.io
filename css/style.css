@@ -1116,6 +1116,9 @@ body {
   right: 18px;
   top: 10px;
 }
+#nexmoe-header .nexmoe-widget-wrap .nexmoe-link ul li:last-child {
+  padding-bottom: 12px;
+}
 #nexmoe-header .nexmoe-widget-wrap .tagcloud {
   padding: 10px;
   padding-bottom: 6px;
